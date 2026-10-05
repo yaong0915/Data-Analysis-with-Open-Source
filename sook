@@ -1,1 +1,29 @@
 
+import pandas as pd
+
+## 데이터 수집 url 및 api key 설정
+url ='https://apis.data.go.kr/B552845/perDay/price'
+api_key ='c4592c52bd73301355fcda3fc00038fe7755d444df6fda681a82a33adde604cc'
+params ={
+    'serviceKey': api_key ,
+    'pageNo':'1',
+    'numOfRows':'30',
+    'cond[exmn_ymd::GTE]':'20150101',
+    'cond[exmn_ymd::LTE]':'20241231',
+    'cond[se_cd::EQ]':'02',
+    'cond[ctgry_cd::EQ]':'200',
+    'cond[item_cd::EQ]':'211',
+    ##'cond[vrty_cd::EQ]':'01',
+    ##'cond[grd_cd::EQ]':'04',
+   'cond[sgg_cd::EQ]':'1101',
+    'cond[mrkt_cd::EQ]':'0110211',
+    'returnType':'JSON',
+    'selectable':'item_cd,vrty_cd',
+}
+## 데이터 수집
+
+
+response =requests.get (url ,params =params )
+
+## 호출 성공/실패 출력
+print (response.json ())
