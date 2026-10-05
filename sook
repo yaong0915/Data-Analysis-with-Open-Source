@@ -27,3 +27,16 @@ response =requests.get (url ,params =params )
 
 ## 호출 성공/실패 출력
 print (response.json ())
+
+##---------------------------------------------------------------------------------
+
+import pandas as pd
+## requests로부터 response, body, item 항목 읽기
+numb=response.json()['response']['body']['items']
+
+df=pd.DataFrame(numb)
+print(type(df))
+print(len(df))
+print(df.head())
+print(df.info())
+df
