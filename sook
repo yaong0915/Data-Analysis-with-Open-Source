@@ -40,3 +40,16 @@ print(len(df))
 print(df.head())
 print(df.info())
 df
+
+------------------------------------------------------------------------------------
+# 한글 처리를 위한 matplotlib 설정 (1)
+
+!sudo apt-get install -y fonts-nanum
+!sudo fc-cache -fv
+!rm ~/.cache/matplotlib -rf
+
+------------------------------------------------------------------------------------------
+# 한글 처리를 위한 matplotlib 설정 (2)
+
+import matplotlib.pyplot as plt
+plt.rc('font', family='NanumBarunGothic')
